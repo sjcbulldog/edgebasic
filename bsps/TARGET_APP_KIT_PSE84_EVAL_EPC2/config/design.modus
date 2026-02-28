@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration app="BACKEND" formatVersion="15" lastSavedWith="Configurator Backend" lastSavedWithVersion="3.60.0" toolsPackage="ModusToolbox 3.6.0" xmlns="http://cypress.com/xsd/cydesignfile_v6">
+<Configuration app="BACKEND" formatVersion="15" lastSavedWith="Configurator Backend" lastSavedWithVersion="3.70.0" toolsPackage="ModusToolbox 3.7.0" xmlns="http://cypress.com/xsd/cydesignfile_v7">
     <Devices>
         <Device mpn="PSE846GPS2DBZC4A">
             <BlockConfig>
@@ -343,6 +343,53 @@
                         <Alias value="CYBSP_USB_OS_TIMER_COUNTER"/>
                     </Aliases>
                 </Block>
+                <Personality template="gfxss" version="1.0" instance="xfk_Z3T0dPo">
+                    <Block location="gfxss[0]" locked="true"/>
+                    <Parameters>
+                        <Param id="display_height" value="480"/>
+                        <Param id="display_type" value="GFX_DISP_TYPE_DSI_DPI"/>
+                        <Param id="display_width" value="832"/>
+                        <Param id="format" value="vivD24"/>
+                        <Param id="fps" value="60"/>
+                        <Param id="gpu_enabled" value="true"/>
+                        <Param id="hbp" value="20"/>
+                        <Param id="hfp" value="210"/>
+                        <Param id="hsync_width" value="10"/>
+                        <Param id="layer0_enabled" value="true"/>
+                        <Param id="layer0_format" value="vivRGB565"/>
+                        <Param id="layer0_height" value="480"/>
+                        <Param id="layer0_pos_x" value="0"/>
+                        <Param id="layer0_pos_y" value="0"/>
+                        <Param id="layer0_visibility" value="true"/>
+                        <Param id="layer0_width" value="832"/>
+                        <Param id="layer0_zorder" value="0"/>
+                        <Param id="layer1_enabled" value="false"/>
+                        <Param id="layer1_format" value="vivRGB565"/>
+                        <Param id="layer1_height" value="1"/>
+                        <Param id="layer1_pos_x" value="0"/>
+                        <Param id="layer1_pos_y" value="0"/>
+                        <Param id="layer1_visibility" value="true"/>
+                        <Param id="layer1_width" value="1"/>
+                        <Param id="layer1_zorder" value="0"/>
+                        <Param id="layer2_enabled" value="false"/>
+                        <Param id="layer2_format" value="vivRGB565"/>
+                        <Param id="layer2_height" value="1"/>
+                        <Param id="layer2_pos_x" value="0"/>
+                        <Param id="layer2_pos_y" value="0"/>
+                        <Param id="layer2_visibility" value="true"/>
+                        <Param id="layer2_width" value="1"/>
+                        <Param id="layer2_zorder" value="0"/>
+                        <Param id="lp_mode_cmd_transfer" value="true"/>
+                        <Param id="lp_mode_video_transfer" value="true"/>
+                        <Param id="max_per_lane_Mbps" value="850"/>
+                        <Param id="mode_flags" value="VID_MODE_TYPE_BURST"/>
+                        <Param id="no_of_dsi_lines" value="2"/>
+                        <Param id="use_max_per_lane_Mbps" value="true"/>
+                        <Param id="vbp" value="20"/>
+                        <Param id="vfp" value="20"/>
+                        <Param id="vsync_width" value="5"/>
+                    </Parameters>
+                </Personality>
                 <Personality template="mxi3c" version="1.0" instance="ckbUNHh80qA">
                     <Block location="i3c[0]" locked="true">
                         <Aliases>
@@ -1285,7 +1332,7 @@
                         <Param id="extended_drive_sel" value="false"/>
                         <Param id="inFlash" value="true"/>
                         <Param id="initialState" value="1"/>
-                        <Param id="isrTrigger" value="CY_GPIO_INTR_DISABLE"/>
+                        <Param id="isrTrigger" value="CY_GPIO_INTR_RISING"/>
                         <Param id="nonSec" value="1"/>
                         <Param id="pullUpRes" value="CY_GPIO_PULLUP_RES_DISABLE"/>
                         <Param id="sioOutputBuffer" value="true"/>
@@ -2040,6 +2087,9 @@
                         <Param id="privileged1" value="false"/>
                         <Param id="privileged2" value="false"/>
                         <Param id="privileged3" value="false"/>
+                        <Param id="shareable1" value="false"/>
+                        <Param id="shareable2" value="false"/>
+                        <Param id="shareable3" value="false"/>
                         <Param id="size1" value="0x00003000"/>
                         <Param id="size2" value="0x00040000"/>
                         <Param id="size3" value="0x001C4000"/>
@@ -2372,7 +2422,12 @@
                         <Param id="is_receiver_3_used" value="true"/>
                         <Param id="is_receiver_4_used" value="false"/>
                         <Param id="is_receiver_5_used" value="false"/>
-                        <Param id="routeCtl" value="4"/>
+                        <Param id="routeCtl_0_1_int1" value="0"/>
+                        <Param id="routeCtl_0_1_int2" value="1"/>
+                        <Param id="routeCtl_2_3_int1" value="0"/>
+                        <Param id="routeCtl_2_3_int2" value="4"/>
+                        <Param id="routeCtl_4_5_int1" value="0"/>
+                        <Param id="routeCtl_4_5_int2" value="16"/>
                         <Param id="rxDmaTrigger" value="false"/>
                         <Param id="rxFifoTriggerLevel_0" value="10"/>
                         <Param id="rxFifoTriggerLevel_1" value="10"/>
@@ -3855,6 +3910,10 @@
             </BlockConfig>
             <Netlist>
                 <Net>
+                    <Port name="gfxss[0].clk_ref_mipidsi[0]"/>
+                    <Port name="srss[0].clock[0].hfclk[12].root_clk[0]"/>
+                </Net>
+                <Net>
                     <Port name="i3c[0].clock_i3c_en[0]"/>
                     <Port name="peri[0].group[9].div_8[0].clk[0]"/>
                 </Net>
@@ -4167,12 +4226,13 @@
                     <Port name="srss[0].clock[0].hfclk[4].root_clk[0]"/>
                 </Net>
                 <Net>
-                    <Port name="srss[0].clock[0].hfclk[1].root_clk[0]"/>
-                    <Port name="usbhs[0].mmio_clk_hf[0]"/>
-                </Net>
-                <Net>
                     <Port name="srss[0].clock[0].hfclk[8].root_clk[0]"/>
                     <Port name="usbhs[0].clk_phy_pll_ref[0]"/>
+                </Net>
+                <Net>
+                    <Port name="gfxss[0].clk_hf[0]"/>
+                    <Port name="srss[0].clock[0].hfclk[1].root_clk[0]"/>
+                    <Port name="usbhs[0].mmio_clk_hf[0]"/>
                 </Net>
             </Netlist>
         </Device>
